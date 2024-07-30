@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const  router = require("express").Router();
 const User = require("../models/User");  
 const Post = require("../models/Post");  
 
@@ -64,6 +64,7 @@ router.delete("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try  {
         const post = await Post.findById(req.params.id);
+        console.log("Hello");
         res.status(200).json(post);
     }  catch(err)  {
         res.status(500).json(err);
@@ -71,7 +72,7 @@ router.get("/:id", async (req, res) => {
 })
 
 //GET ALL POSTS
-router.get("/", async (req, res) => {
+router.get("/posts", async (req, res) => {
     const username = req.query.user;
     
     try  {

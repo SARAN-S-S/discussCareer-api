@@ -41,7 +41,10 @@ mongoose
     app.use("/api/users", userRoute);
     app.use("/api/posts", postRoute);
 
-    const PORT = process.env.PORT || 7733; // Default to 7733 if PORT is not set
-    app.listen(PORT, () => {
-        console.log(`Backend is running on port ${PORT}.`);
-    });
+app.listen("7733", () => {
+    console.log("Backend is running.");
+});
+
+app.get("/", (req,res) => {
+    res.sendFile("Hello")
+}) 
